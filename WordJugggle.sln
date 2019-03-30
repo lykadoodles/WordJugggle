@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "WordJugggle", "WordJugggle\WordJugggle.njsproj", "{843636A4-8DC8-4491-AB32-02B3431B6F58}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WoordJuggle", "WoordJuggle\WoordJuggle.csproj", "{CEB59220-0A58-426D-8790-821342DBB1F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{843636A4-8DC8-4491-AB32-02B3431B6F58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{843636A4-8DC8-4491-AB32-02B3431B6F58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{843636A4-8DC8-4491-AB32-02B3431B6F58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEB59220-0A58-426D-8790-821342DBB1F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEB59220-0A58-426D-8790-821342DBB1F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEB59220-0A58-426D-8790-821342DBB1F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEB59220-0A58-426D-8790-821342DBB1F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
