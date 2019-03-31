@@ -12,59 +12,44 @@ namespace WoordJuggle
 
             
             var wordToBeJuggled = "JAVA";
-            var splitWord = wordToBeJuggled.Split("");
+            var splitWord = wordToBeJuggled.ToCharArray();
             Array.Sort(splitWord);
             var sortWord = string.Join("", splitWord);
-            var finalDistinctJugglet = WordJugggle(sortWord);
+            var finalDistinctJugglet = GetPermutations(sortWord);
             Console.WriteLine("=== FINAL DISTINCT JUGGLET OUTPUT ===");
             Console.WriteLine(finalDistinctJugglet);
             Console.WriteLine("Press any key to exit");
         }
-        private static IList<string> WordJugggle(string word)
+        private static char[] _characters;
+        private static List<string> _list;
+
+        public static IEnumerable<string> GetPermutations(string characters)
         {
-            var juggledLetter = new List<string>();
-            var distinctJugglet = new List<string>();
-            var availableLetter = "";
-
-            for (var i = 0; i < word.Length; i++)
-            {
-                availableLetter = word.Substring(i, 1);
-
-                //add to the juggled letters list
-                juggledLetter.Add(availableLetter);
-
-                //measure if word length has reached 0 then WordJugggleDistinct the juggled word
-                if (word.Length == 0)
-                {
-                    var juggledWord = String.Join("", juggledLetter);
-                    if (WordJugggleDistinct(juggledWord, distinctJugglet))
-                    {
-                        distinctJugglet.Add(juggledWord);
-                        Console.WriteLine(distinctJugglet + " Distinctive Juggle List");
-                    }
-                }
-                else
-                {
-                    //else keep jugglin on the remaining letters available
-                    WordJugggle(word);
-                }
-                word.Insert(i, availableLetter);
-
-                //remove juggled already letters
-                juggledLetter.RemoveAt(0);
-            }
-
-            return distinctJugglet;
+            _characters = characters.ToCharArray();
+            _list = new List<string>();
+            AddPermutations("", 0);
+            return _list;
         }
 
-        private static bool WordJugggleDistinct(string juggledWord, List<string> distinctJugglet)
+        private static void AddPermutations(string permutation, int level)
         {
-            var isDistinct = true;
-            int found = distinctJugglet.Where(x => x == juggledWord).ToList().Count;
-            if (found > 0)
-                isDistinct = false;
-
-            return isDistinct;
+            if (level >= _characters.Length)
+            {
+                _list.Add(permutation);
+            }
+            else
+            {
+                for (int i = 0; i < _characters.Length; i++)
+                {
+                    char ch = _characters[i];
+                    if (ch != ' ')
+                    {
+                        _characters[i] = ' ';
+                        AddPermutations(permutation + ch, level + 1);
+                        _characters[i] = ch;
+                    }
+                }
+            }
         }
     }
 }

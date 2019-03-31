@@ -7,6 +7,8 @@ Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "WordJugggle", "WordJugggle\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WoordJuggle", "WoordJuggle\WoordJuggle.csproj", "{CEB59220-0A58-426D-8790-821342DBB1F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordJuggle", "WordJuggle\WordJuggle.csproj", "{46AEED78-F816-4CE9-A693-1ECAD85AF00F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CEB59220-0A58-426D-8790-821342DBB1F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEB59220-0A58-426D-8790-821342DBB1F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEB59220-0A58-426D-8790-821342DBB1F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46AEED78-F816-4CE9-A693-1ECAD85AF00F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46AEED78-F816-4CE9-A693-1ECAD85AF00F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46AEED78-F816-4CE9-A693-1ECAD85AF00F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46AEED78-F816-4CE9-A693-1ECAD85AF00F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
