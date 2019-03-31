@@ -37,7 +37,7 @@ namespace WoordJuggle
                 if (word.Length == 0)
                 {
                     var juggledWord = String.Join("", juggledLetter);
-                    if (WordJugggleDistinct(juggledWord))
+                    if (WordJugggleDistinct(juggledWord, distinctJugglet))
                     {
                         distinctJugglet.Add(juggledWord);
                         Console.WriteLine(distinctJugglet + " Distinctive Juggle List");
@@ -48,7 +48,7 @@ namespace WoordJuggle
                     //else keep jugglin on the remaining letters available
                     WordJugggle(word);
                 }
-                word.splice(i, 0, availableLetter);
+                word.Insert(i, availableLetter);
 
                 //remove juggled already letters
                 juggledLetter.RemoveAt(0);
@@ -57,10 +57,10 @@ namespace WoordJuggle
             return distinctJugglet;
         }
 
-        private static bool WordJugggleDistinct(string juggledWord)
+        private static bool WordJugggleDistinct(string juggledWord, List<string> distinctJugglet)
         {
-            var isDistinct = true
-            found = distinctJugglet.filter(x => x == juggledWord).length;
+            var isDistinct = true;
+            int found = distinctJugglet.Where(x => x == juggledWord).ToList().Count;
             if (found > 0)
                 isDistinct = false;
 
