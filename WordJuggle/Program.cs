@@ -7,10 +7,6 @@ namespace WordJuggle
     {
         public static void Main(string[] args)
         {
-            //var wordToBeJuggled = "JAVA";
-            //var splitWord = wordToBeJuggled.ToCharArray();
-            //Array.Sort(splitWord);
-            //var sortWord = string.Join("", splitWord);
             int i = 0;
             foreach (string word in Permutations.GetAll("AAJV"))
             {
