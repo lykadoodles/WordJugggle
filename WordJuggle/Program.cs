@@ -5,60 +5,58 @@ namespace WordJuggle
 {
     static class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
-            int i = 0;
-            foreach (string word in Permutations.GetAll("AAJV"))
-            {
-                Console.WriteLine("{0}. {1}", ++i, word);
-            }
+            Console.Write("Please input word to be juggled: ");
+            string inputWord = Console.ReadLine();
+            char[] wordToBeJuggled = inputWord.ToCharArray();
+            Array.Sort(wordToBeJuggled);
+            int wordLength = wordToBeJuggled.Length;
+            wordJuggle(wordToBeJuggled, 0, wordLength);
             Console.ReadLine();
         }
 
-        public static void Assert(bool result, string message)
+        static bool isJuggleReady(char[] word,
+                               int start, int current)
         {
-            Console.WriteLine("ASSERT: {0}: {1}", result ? "PASS" : "FAIL", message);
-        }
-
-        public static class Permutations
-        {
-            static readonly List<string> _emptyList = new List<string>();
-
-            public static IEnumerable<string> GetAll(string text)
+            for (int i = start; i < current; i++)
             {
-                if (string.IsNullOrWhiteSpace(text)) { return _emptyList; }
-
-                if (text.Length == 1) { return new List<string>() { text }; }
-
-                if (text.Length == 2) { return new List<string>() { text, Reverse(text) }; }
-
-                return insertSuffix(GetAll(text.Substring(0, text.Length - 1)), text[text.Length - 1]);
-            }
-
-
-            private static string Reverse(string text)
-            {
-                char[] reverse = text.ToCharArray();
-                Array.Reverse(reverse);
-                return new string(reverse);
-            }
-
-            private static IEnumerable<string> insertSuffix(IEnumerable<string> permutations, char suffix)
-            {
-                List<string> newPermutations = new List<string>();
-
-                foreach (string word in permutations)
+                if (word[i] == word[current])
                 {
-                    for (int i = 0; i <= word.Length; i++)
-                    {
-                        string newWord = word.Insert(i, suffix.ToString());
-                        newPermutations.Add(newWord);
-                    }
+                    return false;
                 }
+            }
+            return true;
+        }
 
-                return newPermutations;
+        static void wordJuggle(char[] word,
+                                     int index, int max)
+        {
+            if (index >= max)
+            {
+                Console.WriteLine(word);
+                return;
             }
 
+            for (int i = index; i < max; i++)
+            { 
+                bool isReadyToJuggle = isJuggleReady(word, index, i);
+                if (isReadyToJuggle)
+                {
+                    juggleNow(word, index, i);
+                    wordJuggle(word, index + 1, max);
+                    juggleNow(word, index, i);
+                }
+            }
         }
+
+        static void juggleNow(char[] word, int currentLetterIndex, int nextLetterIndex)
+        {
+            char letter = word[currentLetterIndex];
+            word[currentLetterIndex] = word[nextLetterIndex];
+            word[nextLetterIndex] = letter;
+        }
+        
     }
+
 }

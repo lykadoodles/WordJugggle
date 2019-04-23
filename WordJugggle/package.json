@@ -1,9 +1,0 @@
-{
-  "name": "word-jugggle",
-  "version": "0.0.0",
-  "description": "WordJugggle",
-  "main": "app.js",
-  "author": {
-    "name": ""
-  }
-}
